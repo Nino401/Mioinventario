@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario Smart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <h1><i class="fa-solid fa-boxes-stacked"></i> Inventario Smart</h1>
+    </header>
+
+    <main>
+        <div class="scanner-container">
+            <video id="video" playsinline></video>
+            <div id="start-scanner-overlay">
+                <button id="start-camera-btn"><i class="fa-solid fa-camera"></i> Avvia Scanner</button>
+            </div>
+            <div class="scanner-laser"></div>
+        </div>
+
+        <div class="controls">
+            <label for="scanned-code-input">Codice Rilevato:</label>
+            <div class="input-group">
+                <input type="text" id="scanned-code-input" placeholder="In attesa di scansione..." readonly>
+                <button id="add-btn" title="Aggiungi 1"><i class="fa-solid fa-plus"></i></button>
+                <button id="remove-btn" title="Rimuovi 1"><i class="fa-solid fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="inventory-container">
+            <h2>Inventario Corrente</h2>
+            <div id="inventory-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Codice Articolo</th>
+                            <th>Quantità</th>
+                            <th>Azioni</th>
+                        </tr>
+                    </thead>
+                    <tbody id="inventory-table-body">
+                        <!-- Righe popolate da JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="report-actions">
+            <button id="export-pdf-btn"><i class="fa-solid fa-file-pdf"></i> Esporta PDF</button>
+            <button id="share-btn"><i class="fa-solid fa-share-nodes"></i> Condividi Report</button>
+        </div>
+
+        <!-- NUOVA AREA DI DEBUG -->
+        <div class="debug-container">
+            <h4>Log di Debug</h4>
+            <pre id="debug-log"></pre>
+        </div>
+    </main>
+
+    <footer>
+        <p>Realizzato per le tue esigenze di inventario</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@zxing/library@latest/umd/zxing.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
